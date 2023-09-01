@@ -23,12 +23,12 @@ export const getStaticProps: GetStaticProps = async () => {
 		const { data: movies } = await MovieService.getAll()
 
 		const slides: ISlide[] = movies.slice(0, 3).map((m) => ({
-			_id: m._id,
-			link: getMovieUrl(m.slug),
-			subTitle: getGenresList(m.genres),
-			title: m.title,
-			bigPoster: m.bigPoster,
-		}))
+         _id: m._id || '',
+         link: m.slug ? getMovieUrl(m.slug) : '#',
+         subTitle: m.genres ? getGenresList(m.genres) : 'Unknown Genre',
+         title: m.title || 'Untitled Movie',
+         bigPoster: m.bigPoster || '',
+      }));
 
 		const { data: dataActors } = await ActorService.getAll()
 
@@ -47,9 +47,9 @@ export const getStaticProps: GetStaticProps = async () => {
 		const trendingMovies: IGalleryItem[] = dataTrendingMovies
 			.slice(0, 7)
 			.map((m) => ({
-				name: m.title,
-				posterPath: m.poster,
-				link: getMovieUrl(m.slug),
+				name: m.title || '',
+				posterPath: m.poster || '',
+				link: m.slug ? getMovieUrl(m.slug) : '',
 			}))
 
 		return {

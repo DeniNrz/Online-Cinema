@@ -30,13 +30,13 @@ export const PopularMovie: FC = () => {
 				movie && (
 					<>
 						<h3>Opened {movie.countOpened} times</h3>
-						<Link href={getMovieUrl(movie.slug)}>
+						<Link href={getMovieUrl(movie.slug || '')}>
 							<div>
 								<Image
 									width={285}
 									height={176}
-									src={movie.bigPoster}
-									alt={movie.title}
+									src={movie.bigPoster || ''}
+									alt={movie.title || ''}
 									className={styles.image}
 									unoptimized
 								/>

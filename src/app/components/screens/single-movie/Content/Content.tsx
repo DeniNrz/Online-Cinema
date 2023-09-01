@@ -13,33 +13,33 @@ export const Content: FC<{ movie: IMovie }> = ({ movie }) => {
 		<div className={styles.content}>
 			<h1>{movie.title}</h1>
 			<div className={styles.details}>
-				<span>{movie.parameters.year} · </span>
-				<span>{movie.parameters.country} · </span>
-				<span>{movie.parameters.duration} min.</span>
+				<span>{movie.parameters?.year} · </span>
+				<span>{movie.parameters?.country} · </span>
+				<span>{movie.parameters?.duration} min.</span>
 			</div>
 			<ContentList
 				name="Genres"
-				links={movie.genres.slice(0, 3).map((g) => ({
+				links={movie.genres ? movie.genres.slice(0, 3).map((g) => ({
 					_id: g._id,
 					link: getGenreUrl(g.slug),
 					title: g.name,
-				}))}
+				})) : []}
 			/>
 				<ContentList
 				name="Actors"
-				links={movie.actors.map((a) => ({
+				links={movie.actors ? movie.actors.map((a) => ({
 					link: getActorUrl(a.slug),
 					title: a.name,
 					_id: a._id,
-				}))}
+				})) : []}
 			/>
 
 			<div className={styles.rating}>
 				<MaterialIcon name="MdStarRate" />
-				<span>{movie.rating.toFixed(1)}</span>
+				<span>{movie.rating?.toFixed(1)}</span>
 			</div>
 
-         <FavoriteButton movieId={movie._id} />
+         <FavoriteButton movieId={movie._id || ''} />
 		</div>
 	)
 }

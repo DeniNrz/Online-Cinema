@@ -21,7 +21,7 @@ export const SlideItem: FC<ISlideItem> = ({ slide, buttonTitle = 'Watch' }) => {
 					layout="fill"
 					className={styles.image}
 					src={slide.bigPoster}
-					alt={slide.title}
+					alt={slide.title || ''}
 					draggable={false}
 					unoptimized
 					priority

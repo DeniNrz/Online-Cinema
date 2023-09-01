@@ -12,13 +12,13 @@ import styles from './MovieList.module.scss'
 export const MovieItem: FC<{ movie: IMovie }> = ({ movie }) => {
 	return (
 		<div className={styles.item}>
-			<Link href={getMovieUrl(movie.slug)}>
+			<Link href={getMovieUrl(String(movie.slug))}>
 				<div className={styles.itemImage}>
 					<Image
 						width={65}
 						height={97}
-						src={movie.poster}
-						alt={movie.title}
+						src={movie.poster || ''}
+						alt={movie.title || ''}
 						draggable={false}
 						priority
 					/>
@@ -29,19 +29,20 @@ export const MovieItem: FC<{ movie: IMovie }> = ({ movie }) => {
 				<div>
 					<div className={styles.title}>{movie.title}</div>
 					<div className={styles.genres}>
-						{movie.genres.map((genre, idx) => (
-							<Link key={genre._id} href={getGenreUrl(genre.slug)}>
-								<div>
-									{getGenresListEach(idx, movie.genres.length, genre.name)}
-								</div>
-							</Link>
-						))}
+               
+               {movie.genres !== undefined && movie.genres.map((genre, idx) => (
+                  <Link key={genre._id} href={getGenreUrl(genre.slug)}>
+                     <div>
+                        {movie.genres && getGenresListEach(idx, movie.genres.length, genre.name)}
+                     </div>
+                  </Link>
+               ))}
 					</div>
 				</div>
 
             <div className={styles.rating}>
                <MaterialIcon name='MdStarRate' />
-               <span>{movie.rating.toFixed(1)}</span>
+               <span>{(Number(movie.rating)).toFixed(1)}</span>
             </div>
 			</div>
 		</div>

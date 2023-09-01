@@ -23,11 +23,11 @@ export const Catalog: FC<ICatalog> = ({ movies, title, description }) => {
 					<GalleryItem
 						key={movie._id}
 						item={{
-							name: movie.title,
-							link: getMovieUrl(movie.slug),
-							posterPath: movie.bigPoster,
+							name: movie.title || '',
+							link: getMovieUrl(movie.slug || ''),
+							posterPath: movie.bigPoster || '',
 							content: {
-								title: movie.title,
+								title: movie.title || '',
 							},
 						}}
 						variant="horizontal"

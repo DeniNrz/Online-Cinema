@@ -21,23 +21,23 @@ const DynamicRateMovie = dynamic(() => import('./RateMovie/RateMovie'), {
 })
 
 export const SingleMovie: FC<IMoviePage> = ({ movie, similarMovies }) => {
-	useUpdateCountOpened(movie.slug)
+	useUpdateCountOpened(movie.slug || '')
 
 	return (
-		<Meta title={movie.title} description={`Watch ${movie.title}`}>
+		<Meta title={movie.title || ''} description={`Watch ${movie.title}`}>
 			<Banner
-				image={movie.bigPoster}
+				image={movie.bigPoster || ''}
 				Detail={() => <Content movie={movie} />}
 			/>
 
-			<DynamicPlayer slug={movie.slug} videoSource={movie.videoUrl} />
+			<DynamicPlayer slug={movie.slug || ''} videoSource={movie.videoUrl || ''} />
 
 			<div className="mt-12">
 				<SubHeading title="Similar" />
 				<Gallery items={similarMovies} />
 			</div>
 
-			<DynamicRateMovie slug={movie.slug} id={movie._id} />
+			<DynamicRateMovie slug={movie.slug || ''} id={movie._id || ''} />
 		</Meta>
 	)
 }

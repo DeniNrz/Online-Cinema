@@ -23,6 +23,8 @@ export interface IActor {
 }
 
 export interface IMovie {
+   map(arg0: (movie: any) => import("react").JSX.Element): import("react").ReactNode
+   length?: any
 	_id?: string
 	poster?: string
 	bigPoster?: string

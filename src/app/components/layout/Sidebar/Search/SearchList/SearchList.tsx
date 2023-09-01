@@ -7,7 +7,6 @@ import { getMovieUrl } from '../../../../../config/url.config'
 import styles from './SearchList.module.scss'
 
 export const SearchList: FC<{ movies: IMovie }> = ({ movies }) => {
-   console.log(movies)
 	return (
 		<div className={styles.list}>
 			{movies.length ? (
@@ -21,9 +20,9 @@ export const SearchList: FC<{ movies: IMovie }> = ({ movies }) => {
 								alt={movie.title}
 								objectFit="cover"
 								objectPosition="top"
-                        draggable={false}
+								draggable={false}
 							/>
-                     <span>{movie.title}</span>
+							<span>{movie.title}</span>
 						</div>
 					</Link>
 				))

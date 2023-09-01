@@ -21,11 +21,11 @@ export const useMovies = () => {
 			select: ({ data }) =>
 				data.map(
 					(movie): ITableItem => ({
-						_id: movie._id,
+						_id: movie._id || '',
 						editUrl: getAdminUrl(`movie/edit/${movie._id}`),
 						items: [
-							movie.title,
-							getGenresList(movie.genres),
+							movie.title || '',
+							movie.genres ? getGenresList(movie.genres) : '',
 							String(movie.rating),
 						],
 					})

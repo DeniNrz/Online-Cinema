@@ -56,7 +56,7 @@ const MovieEdit: FC = () => {
 						/>
 						<SlugField
 							generate={() =>
-								setValue('slug', generateSlug(getValues('title')))
+								setValue('slug', generateSlug(getValues('title') || ''))
 							}
 							register={register}
 							error={errors.slug}
