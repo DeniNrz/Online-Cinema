@@ -9,7 +9,7 @@ import { getMovieUrl } from '../../../config/url.config'
 
 import styles from './Catalog.module.scss'
 
-export const Catalog: FC<ICatalog> = ({ movies, title, description }) => {
+const Catalog: FC<ICatalog> = ({ movies, title, description }) => {
 	return (
 		<Meta title={title} description={description}>
 			<Heading title={title} className={styles.heading} />
@@ -37,3 +37,5 @@ export const Catalog: FC<ICatalog> = ({ movies, title, description }) => {
 		</Meta>
 	)
 }
+
+export default Catalog

@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 
 import { IGenre, IMovie } from '../../app/shared/types/movie.types'
-import { Catalog } from '../../app/components/ui/catalog-movies/Catalog'
+import  Catalog  from '../../app/components/ui/catalog-movies/Catalog'
 import { GenreService } from '../../app/services/genre.service'
 import { MovieService } from '../../app/services/movie.service'
 import Error404 from '../404'
