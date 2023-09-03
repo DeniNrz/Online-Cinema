@@ -5,10 +5,13 @@ import { ContentList } from './ContentList/ContentList'
 import { getActorUrl, getGenreUrl } from '../../../../config/url.config'
 import MaterialIcon from '../../../ui/MaterialIcon'
 import FavoriteButton from '../FavoriteButton/FavoriteButton'
+import { useAuth } from '../../../../hooks/useAuth'
 
 import styles from './Content.module.scss'
 
 export const Content: FC<{ movie: IMovie }> = ({ movie }) => {
+   const { user } = useAuth()
+
 	return (
 		<div className={styles.content}>
 			<h1>{movie.title}</h1>
@@ -39,7 +42,7 @@ export const Content: FC<{ movie: IMovie }> = ({ movie }) => {
 				<span>{movie.rating?.toFixed(1)}</span>
 			</div>
 
-         <FavoriteButton movieId={movie._id || ''} />
+         {user && <FavoriteButton movieId={movie._id || ''} />}
 		</div>
 	)
 }

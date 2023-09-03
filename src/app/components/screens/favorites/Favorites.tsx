@@ -5,11 +5,16 @@ import { Heading } from '../../ui/heading/Heading'
 import { useFavorites } from './useFavorites'
 import { SkeletonLoader } from '../../ui/SkeletonLoader'
 import { FavoriteItem } from './FavoriteItem'
+import { useAuth } from '../../../hooks/useAuth'
 
 import styles from './Favorites.module.scss'
 
 export const Favorites: FC = () => {
 	const { favoriteMovies, isLoading } = useFavorites()
+
+   const { user } = useAuth()
+
+   if (!user) return null
 
 	return (
 		<Meta title="Favorites">

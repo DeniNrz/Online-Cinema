@@ -15,7 +15,9 @@ export const MovieList: FC<IMovieList> = ({ link, title, movies }) => {
 			))}
 
 			<Link href={link}>
-				<div className={styles.button}>See more</div>
+				<div className={styles.button}>
+					{link === '/trending' ? 'All trending movies' : 'All popular movies'}
+				</div>
 			</Link>
 		</div>
 	)
