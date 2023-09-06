@@ -74,7 +74,7 @@ const MovieEdit: FC = () => {
 								required: 'Duration is required!',
 							})}
 							placeholder="Duration (min.)"
-							error={errors.parameters}
+							error={errors.parameters?.country}
 							style={{ width: '31%' }}
 						/>
 						<Field
@@ -82,7 +82,7 @@ const MovieEdit: FC = () => {
 								required: 'Year is required!',
 							})}
 							placeholder="Year"
-							error={errors.parameters}
+							error={errors.parameters?.country}
 							style={{ width: '31%' }}
 						/>
 
