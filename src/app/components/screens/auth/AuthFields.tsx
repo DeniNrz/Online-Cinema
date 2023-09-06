@@ -26,7 +26,7 @@ export const AuthFields: FC<IAuthFields> = ({
 					},
 				})}
 				placeholder="E-mail"
-				error={errors.email}
+				error={errors.email || undefined}
 			/>
 			<Field
 				{...register(
@@ -43,7 +43,7 @@ export const AuthFields: FC<IAuthFields> = ({
 				)}
 				placeholder="Password"
 				type="password"
-				error={errors.password}
+				error={errors.password || undefined}
 			/>
 		</>
 	)
