@@ -66,7 +66,7 @@ const MovieEdit: FC = () => {
 								required: 'Country is required!',
 							})}
 							placeholder="Country"
-							error={errors.parameters}
+							error={errors.parameters?.country}
 							style={{ width: '31%' }}
 						/>
 						<Field
