@@ -6,7 +6,7 @@ export interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
 export interface IFieldProps {
 	placeholder: string
-	error?: FieldError | string
+	error?: FieldError | undefined
 }
 
 type TypeInputPropsField = InputHTMLAttributes<HTMLInputElement> & IFieldProps
