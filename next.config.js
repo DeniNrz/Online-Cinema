@@ -11,11 +11,11 @@ const nextConfig = {
 		return [
 			{
 				source: '/api/:path*',
-				destination: 'http://localhost:4200/api/:path*',
+				destination: 'https://online-cinema-one.vercel.app/api/:path*',
 			},
 			{
 				source: '/uploads/:path*',
-				destination: 'http://localhost:4200/uploads/:path*',
+				destination: 'https://online-cinema-one.vercel.app/uploads/:path*',
 			},
 		]
 	},
