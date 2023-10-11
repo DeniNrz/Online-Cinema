@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { useQuery } from 'react-query'
 import Link from 'next/link'
 import cn from 'classnames'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 
 import { MovieService } from '../../../../../services/movie.service'
 import { IMovie } from '../../../../../shared/types/movie.types'

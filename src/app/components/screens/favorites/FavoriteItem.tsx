@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 
 import { IMovie } from '../../../shared/types/movie.types'
 import FavoriteButton from '../single-movie/FavoriteButton/FavoriteButton'
